@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="Trabalho sementes" id="Project-1fe8" database="PostgreSQL" >
+	<schema name="instance" catalogname="Trabalho sementes" >
+		<table name="cliente" prior="Cliente" >
+			<column name="cli_id" prior="CLI_ID" type="integer" jt="4" mandatory="y" />
+			<column name="cli_nome" prior="CLI_Nome" type="varchar" length="255" jt="12" />
+			<column name="cli_contato" prior="CLI_Contato" type="varchar" length="50" jt="12" />
+			<column name="cli_email" prior="CLI_Email" type="varchar" length="100" jt="12" />
+			<column name="cli_endereço_cep" prior="CLI_Endereço_CEP" type="varchar" length="20" jt="12" />
+			<column name="cli_endereço_estado" prior="CLI_Endereço_Estado" type="varchar" length="50" jt="12" />
+			<column name="cli_endereço_cidade" prior="CLI_Endereço_Cidade" type="varchar" length="100" jt="12" />
+			<column name="cli_endereço_rua" prior="CLI_Endereço_Rua" type="varchar" length="255" jt="12" />
+			<index name="pk_cliente" unique="PRIMARY_KEY" >
+				<column name="cli_id" />
+			</index>
+		</table>
+		<table name="itemdopedido" prior="ItemDoPedido" >
+			<column name="item_ped_id" prior="ITEM_PED_ID" type="integer" jt="4" mandatory="y" />
+			<column name="item_prod_id" prior="ITEM_PROD_ID" type="integer" jt="4" mandatory="y" />
+			<column name="item_quantidade" prior="ITEM_Quantidade" type="integer" jt="4" />
+			<column name="item_preçounitário" prior="ITEM_PreçoUnitário" type="numeric" length="10" decimal="2" jt="2" />
+			<index name="pk" unique="PRIMARY_KEY" >
+				<column name="item_prod_id" />
+				<column name="item_ped_id" />
+			</index>
+			<fk name="fk_itemdopedido_pedido" to_schema="Trabalho sementes.instance" to_table="pedido" >
+				<fk_column name="item_ped_id" pk="ped_id" />
+			</fk>
+			<fk name="fk_itemdopedido_produto" to_schema="Trabalho sementes.instance" to_table="produto" >
+				<fk_column name="item_prod_id" pk="prod_id" />
+			</fk>
+		</table>
+		<table name="pagamento" prior="Pagamento" >
+			<column name="pag_id" prior="PAG_ID" type="integer" jt="4" />
+			<column name="pag_ped_id" prior="PAG_PED_ID" type="integer" jt="4" mandatory="y" />
+			<column name="pag_valor" prior="PAG_Valor" type="numeric" length="10" decimal="2" jt="2" />
+			<column name="pag_datapagamento" prior="PAG_DataPagamento" type="date" jt="91" />
+			<column name="pag_método" prior="PAG_Método" type="varchar" length="50" jt="12" >
+				<comment><![CDATA[Exemplo de valores: 'Dinheiro', 'Cartão de Crédito', 'Boleto']]></comment>
+			</column>
+			<index name="pk_pagamento" unique="PRIMARY_KEY" >
+				<column name="pag_ped_id" />
+			</index>
+			<fk name="fk_pagamento_pedido" to_schema="Trabalho sementes.instance" to_table="pedido" >
+				<fk_column name="pag_ped_id" pk="ped_id" />
+			</fk>
+		</table>
+		<table name="pedido" prior="Pedido" >
+			<column name="ped_id" prior="PED_ID" type="integer" jt="4" mandatory="y" />
+			<column name="ped_datavenda" prior="PED_DataVenda" type="date" jt="91" />
+			<column name="ped_status" prior="PED_Status" type="varchar" length="50" jt="12" >
+				<comment><![CDATA[Exemplo de valores: 'Pendente', 'Concluído', 'Cancelado']]></comment>
+			</column>
+			<column name="ped_cli_id" prior="PED_CLI_ID" type="integer" jt="4" mandatory="y" >
+				<comment><![CDATA[Chave Estrangeira de Cliente]]></comment>
+			</column>
+			<column name="ped_total" prior="PED_Total" type="numeric" length="10" decimal="2" jt="2" />
+			<index name="pk_pedido" unique="PRIMARY_KEY" >
+				<column name="ped_id" />
+				<column name="ped_cli_id" />
+			</index>
+			<index name="unq_pedidoid" unique="UNIQUE_INDEX" >
+				<column name="ped_id" />
+			</index>
+			<fk name="fk_pedido_cliente" to_schema="Trabalho sementes.instance" to_table="cliente" >
+				<fk_column name="ped_cli_id" pk="cli_id" />
+			</fk>
+		</table>
+		<table name="produto" prior="Produto" >
+			<column name="prod_id" prior="PROD_ID" type="integer" jt="4" mandatory="y" />
+			<column name="prod_nome" prior="PROD_Nome" type="varchar" length="255" jt="12" />
+			<column name="prod_tipo" prior="PROD_Tipo" type="varchar" length="50" jt="12" >
+				<comment><![CDATA[Exemplo de valores: 'Semente', 'Manejo Químico']]></comment>
+			</column>
+			<column name="prod_preço" prior="PROD_Preço" type="numeric" length="10" decimal="2" jt="2" />
+			<column name="prod_estoque_quantidade" prior="PROD_Estoque_Quantidade" type="integer" jt="4" />
+			<column name="prod_estoque_reposicao" prior="PROD_Estoque_Reposicao" type="integer" jt="4" />
+			<index name="pk_produto" unique="PRIMARY_KEY" >
+				<column name="prod_id" />
+			</index>
+		</table>
+	</schema>
+	<layout name="Default Layout" id="Layout-9b" confirmed="y" show_relation="columns" >
+		<entity schema="Trabalho sementes.instance" name="cliente" color="C1D8EE" x="48" y="48" />
+		<entity schema="Trabalho sementes.instance" name="itemdopedido" color="C1D8EE" x="368" y="320" />
+		<entity schema="Trabalho sementes.instance" name="pagamento" color="C1D8EE" x="48" y="544" />
+		<entity schema="Trabalho sementes.instance" name="pedido" color="C1D8EE" x="48" y="304" />
+		<entity schema="Trabalho sementes.instance" name="produto" color="C1D8EE" x="352" y="48" />
+		<script name="SQL_Editor" id="Editor-173f" language="SQL" >
+			<string><![CDATA[CREATE SCHEMA IF NOT EXISTS "instance";
+
+CREATE  TABLE "instance".cliente ( 
+	cli_id               integer  NOT NULL  ,
+	cli_nome             varchar(255)    ,
+	cli_contato          varchar(50)    ,
+	cli_email            varchar(100)    ,
+	cli_endereço_cep     varchar(20)    ,
+	cli_endereço_estado  varchar(50)    ,
+	cli_endereço_cidade  varchar(100)    ,
+	cli_endereço_rua     varchar(255)    ,
+	CONSTRAINT pk_cliente PRIMARY KEY ( cli_id )
+ );
+
+CREATE  TABLE "instance".pedido ( 
+	ped_id               integer  NOT NULL  ,
+	ped_datavenda        date    ,
+	ped_status           varchar(50)    ,
+	ped_cli_id           integer  NOT NULL  ,
+	ped_total            numeric(10,2)    ,
+	CONSTRAINT pk_pedido PRIMARY KEY ( ped_id, ped_cli_id ),
+	CONSTRAINT fk_pedido_cliente FOREIGN KEY ( ped_cli_id ) REFERENCES "instance".cliente( cli_id )   
+ );
+
+CREATE UNIQUE INDEX unq_pedidoid ON "instance".pedido ( ped_id );
+
+CREATE  TABLE "instance".produto ( 
+	prod_id              integer  NOT NULL  ,
+	prod_nome            varchar(255)    ,
+	prod_tipo            varchar(50)    ,
+	prod_preço           numeric(10,2)    ,
+	prod_estoque_quantidade integer    ,
+	prod_estoque_reposicao integer    ,
+	CONSTRAINT pk_produto PRIMARY KEY ( prod_id )
+ );
+
+CREATE  TABLE "instance".itemdopedido ( 
+	item_ped_id          integer  NOT NULL  ,
+	item_prod_id         integer  NOT NULL  ,
+	item_quantidade      integer    ,
+	item_preçounitário   numeric(10,2)    ,
+	CONSTRAINT pk PRIMARY KEY ( item_prod_id, item_ped_id ),
+	CONSTRAINT fk_itemdopedido_pedido FOREIGN KEY ( item_ped_id ) REFERENCES "instance".pedido( ped_id )   ,
+	CONSTRAINT fk_itemdopedido_produto FOREIGN KEY ( item_prod_id ) REFERENCES "instance".produto( prod_id )   
+ );
+
+CREATE  TABLE "instance".pagamento ( 
+	pag_id               integer    ,
+	pag_ped_id           integer  NOT NULL  ,
+	pag_valor            numeric(10,2)    ,
+	pag_datapagamento    date    ,
+	pag_método           varchar(50)    ,
+	CONSTRAINT pk_pagamento PRIMARY KEY ( pag_ped_id ),
+	CONSTRAINT fk_pagamento_pedido FOREIGN KEY ( pag_ped_id ) REFERENCES "instance".pedido( ped_id )   
+ );
+
+COMMENT ON COLUMN "instance".pedido.ped_status IS 'Exemplo de valores: ''Pendente'', ''Concluído'', ''Cancelado''';
+
+COMMENT ON COLUMN "instance".pedido.ped_cli_id IS 'Chave Estrangeira de Cliente';
+
+COMMENT ON COLUMN "instance".produto.prod_tipo IS 'Exemplo de valores: ''Semente'', ''Manejo Químico''';
+
+COMMENT ON COLUMN "instance".pagamento.pag_método IS 'Exemplo de valores: ''Dinheiro'', ''Cartão de Crédito'', ''Boleto''';
+]]></string>
+		</script>
+		<script name="tables.sql" id="Editor-11f5" language="SQL" file="file:/C:/Users/Lucia/OneDrive/Documentos/DEV/POS_PUC/Banco%20de%20dados/tables.sql" />
+	</layout>
+	<layout name="Layout" id="Layout-ecd" confirmed="y" show_relation="columns" />
+</project>

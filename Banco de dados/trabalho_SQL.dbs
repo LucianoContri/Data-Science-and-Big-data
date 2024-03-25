@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="Trabalho sementes" id="Project-1229" database="LogicalDesign" >
+	<schema name="INSTANCE" catalogname="Trabalho sementes" >
+		<table name="Cliente" prior="Entity" >
+			<column name="CLI_ID" prior="ClienteID" type="INT" jt="4" mandatory="y" />
+			<column name="CLI_Nome" prior="Nome" type="VARCHAR" length="255" jt="12" />
+			<column name="CLI_Contato" prior="Contato" type="VARCHAR" length="50" jt="12" />
+			<column name="CLI_Email" prior="Email" type="VARCHAR" length="100" jt="12" />
+			<column name="CLI_Endereço_CEP" prior="Endereço_CEP" type="VARCHAR" length="20" jt="12" />
+			<column name="CLI_Endereço_Estado" prior="Endereço_Estado" type="VARCHAR" length="50" jt="12" />
+			<column name="CLI_Endereço_Cidade" prior="Endereço_Cidade" type="VARCHAR" length="100" jt="12" />
+			<column name="CLI_Endereço_Rua" prior="Endereço_Rua" type="VARCHAR" length="255" jt="12" />
+			<index name="pk_Cliente" unique="PRIMARY_KEY" >
+				<column name="CLI_ID" />
+			</index>
+		</table>
+		<table name="ItemDoPedido" prior="Entity" >
+			<column name="ITEM_PED_ID" prior="PED_ID" type="INT" jt="4" mandatory="y" />
+			<column name="ITEM_PROD_ID" prior="PROD_ID" type="INT" jt="4" mandatory="y" />
+			<column name="ITEM_Quantidade" prior="Quantidade" type="INT" jt="4" />
+			<column name="ITEM_PreçoUnitário" prior="PreçoUnitário" type="DECIMAL" length="10" decimal="2" jt="3" />
+			<index name="pk" unique="PRIMARY_KEY" >
+				<column name="ITEM_PROD_ID" />
+				<column name="ITEM_PED_ID" />
+			</index>
+			<fk name="fk_itemdopedido_pedido" to_schema="Trabalho sementes.INSTANCE" to_table="Pedido" type="Identifying" mandatory="y" cardinality="OneMore" range_from="0" range_to="0" >
+				<fk_column name="ITEM_PED_ID" pk="PED_ID" />
+			</fk>
+			<fk name="fk_itemdopedido_produto" to_schema="Trabalho sementes.INSTANCE" to_table="Produto" type="Identifying" mandatory="y" cardinality="OneMore" range_from="0" range_to="0" >
+				<fk_column name="ITEM_PROD_ID" pk="PROD_ID" />
+			</fk>
+		</table>
+		<table name="Pagamento" prior="Entity" >
+			<column name="PAG_ID" prior="PagamentoID" type="INT" jt="4" />
+			<column name="PAG_PED_ID" prior="PED_ID" type="INT" jt="4" mandatory="y" />
+			<column name="PAG_Valor" prior="Valor" type="DECIMAL" length="10" decimal="2" jt="3" />
+			<column name="PAG_DataPagamento" prior="DataPagamento" type="DATE" jt="91" />
+			<column name="PAG_Método" prior="Método" type="VARCHAR" length="50" jt="12" >
+				<comment><![CDATA[Exemplo de valores: 'Dinheiro', 'Cartão de Crédito', 'Boleto']]></comment>
+			</column>
+			<index name="pk_pagamento" unique="PRIMARY_KEY" >
+				<column name="PAG_PED_ID" />
+			</index>
+			<fk name="fk_pagamento_pedido" to_schema="Trabalho sementes.INSTANCE" to_table="Pedido" type="Identifying" mandatory="y" cardinality="One" range_from="0" range_to="0" >
+				<fk_column name="PAG_PED_ID" pk="PED_ID" />
+			</fk>
+		</table>
+		<table name="Pedido" prior="Entity" >
+			<column name="PED_ID" prior="PedidoID" type="INT" jt="4" mandatory="y" />
+			<column name="PED_DataVenda" prior="DataVenda" type="DATE" jt="91" />
+			<column name="PED_Status" prior="Status" type="VARCHAR" length="50" jt="12" >
+				<comment><![CDATA[Exemplo de valores: 'Pendente', 'Concluído', 'Cancelado']]></comment>
+			</column>
+			<column name="PED_CLI_ID" prior="CLI_ID" type="INT" jt="4" mandatory="y" >
+				<comment><![CDATA[Chave Estrangeira de Cliente]]></comment>
+			</column>
+			<column name="PED_Total" prior="Total" type="DECIMAL" length="10" decimal="2" jt="3" />
+			<index name="pk_Pedido" unique="PRIMARY_KEY" >
+				<column name="PED_ID" />
+				<column name="PED_CLI_ID" />
+			</index>
+			<index name="unq_PedidoID" unique="UNIQUE_INDEX" >
+				<column name="PED_ID" />
+			</index>
+			<fk name="fk_pedido_cliente" to_schema="Trabalho sementes.INSTANCE" to_table="Cliente" type="Identifying" mandatory="y" cardinality="OneMore" range_from="0" range_to="0" >
+				<fk_column name="PED_CLI_ID" pk="CLI_ID" />
+			</fk>
+		</table>
+		<table name="Produto" prior="Entity" >
+			<column name="PROD_ID" prior="ProdutoID" type="INT" jt="4" mandatory="y" />
+			<column name="PROD_Nome" prior="CLI_Nome" type="VARCHAR" length="255" jt="12" />
+			<column name="PROD_Tipo" prior="Tipo" type="VARCHAR" length="50" jt="12" >
+				<comment><![CDATA[Exemplo de valores: 'Semente', 'Manejo Químico']]></comment>
+			</column>
+			<column name="PROD_Preço" prior="Preço" type="DECIMAL" length="10" decimal="2" jt="3" />
+			<column name="PROD_Estoque_Quantidade" prior="Estoque_Quantidade" type="INT" jt="4" />
+			<column name="PROD_Estoque_Reposicao" prior="Estoque_Reposicao" type="INT" jt="4" />
+			<index name="pk_Produto" unique="PRIMARY_KEY" >
+				<column name="PROD_ID" />
+			</index>
+		</table>
+	</schema>
+	<layout name="Default Layout" id="Layout-22d1" show_column_type="y" show_relation="columns" >
+		<entity schema="Trabalho sementes.INSTANCE" name="Cliente" color="C1D8EE" x="48" y="48" />
+		<entity schema="Trabalho sementes.INSTANCE" name="ItemDoPedido" color="C1D8EE" x="368" y="320" />
+		<entity schema="Trabalho sementes.INSTANCE" name="Pagamento" color="C1D8EE" x="48" y="528" />
+		<entity schema="Trabalho sementes.INSTANCE" name="Pedido" color="C1D8EE" x="48" y="304" />
+		<entity schema="Trabalho sementes.INSTANCE" name="Produto" color="C1D8EE" x="352" y="48" />
+	</layout>
+	<layout name="Layout" id="Layout-1b50" show_relation="columns" />
+</project>

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="Trabalho sementes" id="Project-1631" database="PostgreSQL" >
+	<schema name="instance" catalogname="Trabalho sementes" >
+		<table name="cliente" prior="Cliente" >
+			<column name="clienteid" prior="ClienteID" type="integer" jt="4" mandatory="y" />
+			<column name="nome" prior="Nome" type="varchar" length="255" jt="12" />
+			<column name="contato" prior="Contato" type="varchar" length="50" jt="12" />
+			<column name="email" prior="Email" type="varchar" length="100" jt="12" />
+			<column name="endereço_cep" prior="Endereço_CEP" type="varchar" length="20" jt="12" />
+			<column name="endereço_estado" prior="Endereço_Estado" type="varchar" length="50" jt="12" />
+			<column name="endereço_cidade" prior="Endereço_Cidade" type="varchar" length="100" jt="12" />
+			<column name="endereço_rua" prior="Endereço_Rua" type="varchar" length="255" jt="12" />
+			<index name="cliente_pk" unique="PRIMARY_KEY" >
+				<column name="clienteid" />
+			</index>
+		</table>
+		<table name="itemdopedido" prior="ItemDoPedido" >
+			<column name="pedidoid" prior="PedidoID" type="integer" jt="4" mandatory="y" />
+			<column name="produtoid" prior="ProdutoID" type="integer" jt="4" mandatory="y" />
+			<column name="quantidade" prior="Quantidade" type="integer" jt="4" />
+			<column name="preçounitário" prior="PreçoUnitário" type="numeric" length="10" decimal="2" jt="2" />
+			<index name="itemdopedido_pk" unique="PRIMARY_KEY" >
+				<column name="produtoid" />
+				<column name="pedidoid" />
+			</index>
+			<fk name="fk_itemdopedido_pedido" to_schema="Trabalho sementes.instance" to_table="pedido" >
+				<fk_column name="pedidoid" pk="pedidoid" />
+			</fk>
+			<fk name="fk_itemdopedido_produto" to_schema="Trabalho sementes.instance" to_table="produto" >
+				<fk_column name="produtoid" pk="produtoid" />
+			</fk>
+		</table>
+		<table name="pagamento" prior="Pagamento" >
+			<column name="pagamentoid" prior="PagamentoID" type="integer" jt="4" />
+			<column name="pedidoid" prior="PedidoID" type="integer" jt="4" mandatory="y" />
+			<column name="valor" prior="Valor" type="numeric" length="10" decimal="2" jt="2" />
+			<column name="datapagamento" prior="DataPagamento" type="date" jt="91" />
+			<column name="método" prior="Método" type="varchar" length="50" jt="12" >
+				<comment><![CDATA[Exemplo de valores: 'Dinheiro', 'Cartão de Crédito', 'Boleto']]></comment>
+			</column>
+			<index name="pagamento_pk" unique="PRIMARY_KEY" >
+				<column name="pedidoid" />
+			</index>
+			<fk name="fk_pagamento_pedido" to_schema="Trabalho sementes.instance" to_table="pedido" >
+				<fk_column name="pedidoid" pk="pedidoid" />
+			</fk>
+		</table>
+		<table name="pedido" prior="Pedido" >
+			<column name="pedidoid" prior="PedidoID" type="integer" jt="4" mandatory="y" />
+			<column name="datavenda" prior="DataVenda" type="date" jt="91" />
+			<column name="status" prior="Status" type="varchar" length="50" jt="12" >
+				<comment><![CDATA[Exemplo de valores: 'Pendente', 'Concluído', 'Cancelado']]></comment>
+			</column>
+			<column name="clienteid" prior="ClienteID" type="integer" jt="4" mandatory="y" >
+				<comment><![CDATA[Chave Estrangeira de Cliente]]></comment>
+			</column>
+			<column name="total" prior="Total" type="numeric" length="10" decimal="2" jt="2" />
+			<index name="pedido_pk" unique="PRIMARY_KEY" >
+				<column name="pedidoid" />
+				<column name="clienteid" />
+			</index>
+			<index name="unq_pedidoid" unique="UNIQUE_INDEX" >
+				<column name="pedidoid" />
+			</index>
+			<fk name="fk_pedido_cliente" to_schema="Trabalho sementes.instance" to_table="cliente" >
+				<fk_column name="clienteid" pk="clienteid" />
+			</fk>
+		</table>
+		<table name="produto" prior="Produto" >
+			<column name="produtoid" prior="ProdutoID" type="integer" jt="4" mandatory="y" />
+			<column name="nome" prior="Nome" type="varchar" length="255" jt="12" />
+			<column name="tipo" prior="Tipo" type="varchar" length="50" jt="12" >
+				<comment><![CDATA[Exemplo de valores: 'Semente', 'Manejo Químico']]></comment>
+			</column>
+			<column name="preço" prior="Preço" type="numeric" length="10" decimal="2" jt="2" />
+			<column name="estoque_quantidade" prior="Estoque_Quantidade" type="integer" jt="4" />
+			<column name="estoque_reposicao" prior="Estoque_Reposicao" type="integer" jt="4" />
+			<index name="produto_pk" unique="PRIMARY_KEY" >
+				<column name="produtoid" />
+			</index>
+		</table>
+	</schema>
+	<layout name="Default Layout" id="Layout-14ef" confirmed="y" show_column_type="y" show_relation="columns" >
+		<entity schema="Trabalho sementes.instance" name="cliente" color="C1D8EE" x="48" y="48" />
+		<entity schema="Trabalho sementes.instance" name="itemdopedido" color="C1D8EE" x="304" y="320" />
+		<entity schema="Trabalho sementes.instance" name="pagamento" color="C1D8EE" x="112" y="544" />
+		<entity schema="Trabalho sementes.instance" name="pedido" color="C1D8EE" x="48" y="304" />
+		<entity schema="Trabalho sementes.instance" name="produto" color="C1D8EE" x="288" y="48" />
+	</layout>
+	<layout name="Layout" id="Layout-1e1" confirmed="y" show_relation="columns" />
+</project>
