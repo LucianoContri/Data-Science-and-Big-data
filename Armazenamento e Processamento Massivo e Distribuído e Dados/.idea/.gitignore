@@ -6,3 +6,25 @@
 # Datasource local storage ignored files
 /dataSources/
 /dataSources.local.xml
+
+# Ignore environment variables file
+.env
+
+# Ignore Python cache files
+__pycache__/
+*.py[cod]
+
+# Ignore Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Ignore virtual environment directory
+venv/
+env/
+
+# Ignore data files
+*.csv
+*.json
+
+# Ignore OS generated files
+.DS_Store
+Thumbs.db
