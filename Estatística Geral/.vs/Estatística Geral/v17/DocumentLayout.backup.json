@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\DEV\\POS_PUC\\Estat\u00EDstica Geral\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\DEV\\POS_PUC\\Estat\u00EDstica Geral\\Atividade2.ipynb||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Atividade2.ipynb||{8B382828-6202-11D1-8870-0000F87579D2}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Atividade2.ipynb",
+              "DocumentMoniker": "C:\\DEV\\POS_PUC\\Estat\u00EDstica Geral\\Atividade2.ipynb",
+              "RelativeDocumentMoniker": "Atividade2.ipynb",
+              "ToolTip": "C:\\DEV\\POS_PUC\\Estat\u00EDstica Geral\\Atividade2.ipynb*",
+              "RelativeToolTip": "Atividade2.ipynb*",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAAAAAA",
+              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAd9SURBVFhHrVcLjFXFGf5mzuPeu3d3K\u002ByDlYcsSsEisYlpqY1ihfShKWQroJJQSCsNkIo2ASwlXWSJmKyxjdZGwdqUElpFi4\u002BmmK6xFSw2oiwWnyso0OoSluXue/fee57T/59zzs0Ku2lBvuTPzD93Zr5v/pnzz1yBUZB989Bfsj2nuzvtzErMmVOMm0fEHWceqOixhlYdt/3l\u002BaKZNTuyd7XNWP9C/PPoUEqNKiDV\u002BuGA5Q\u002BWZztzjlCquaPh5qb4J41Huu6qLASVy/qEtaDfMK7rNYTdaygcgevKgm1X9maeCUPceWj6ulw8ZESMKKDiuWPT3Bp1RGUVMrke2D0UAKl6L63ObW68\u002BsWBfGgsHgis6wsoSw\u002BJFLRJiQGyA\u002BlCEKYDo6Z9LFKhcYZWec8/pqzZEU99DkYW8PSx9V6laFaZEKpcoSbXifGX5JAtc\u002BEOGZhb/S/UVuQwGJooqBQckUFB2igIA69VFpWT9kSqYGFCbgwMA/CUekXZqSX7au/siClKGFHA\u002BN2HD/WnrGtYQJgyoCyJqV3dtCIJFUh4vkSmLIe50/dDpIaQD234FAVHpnC03KIuvvCNEMZgChWBCdDWeCIcHPLCjW\u002BMX/9wTKOhBSh1o\u002BkX09dCiIUC4nuTXv5pPYUXAU0amBaUbUCQCPttC4Fr6YFQtCumh6lXHMasq15HUfJK0ziT\u002BQKUVFCCxBOxcgwYpqJ6AJdEDfnBO24hM\u002B\u002B9CWs/5WmE7yzeDtU/j\u002BrV3HCoeyJufnMJun92P7sEYgqDYeZTUxjVFftU1\u002BUwv1TnMvK/\u002BPHdSJkCMuWjP\u002B0Gst/ecryqqUlKcflsiKwmZ7zwnxkQbrIzF4ec/Z7QRWfBweluwD1lG54rNk06ed\u002BrMhAdf5ByNsWiXFMe6LoMoUf7FpOfeOWPOLF3F068\u002Bgz2PvUoHtywGhPrSG9MblLo169ejnf37UGh/X0c/NufsXDeTZ8h5760I1SXtOeCmiTCvEBYEDdI0zzerNTJQMpvkYgKfDRQBckHhweT1U\u002BowyWV5fh3\u002BynMnHY51q1cira9z\u002BHGr1\u002Bjf1\u002B59FY0N65DXW0NDhx8CzO/NB2rV/yAhFEUk6iQGEEukwtaV2Rcpy0RYl9RqeMHgS60nL4NRWUgdNIlAYzDHxzFnNtWYNKs72DRirUwTQPbH9qiCabWX6b7rFqzAXPmLcKUq2dh6Y9\u002BDN9zSuSRkIicA8vEdCopKhIUQPpKwoF7lDqGXZ\u002BYMMdQ7ihFgPacoWgUTVIsFPHsnpfw\u002B13Po37SBMycPhU7ntqtu\u002BzesQ07H38EX77qSrS30wEfTs4RYFJeNc8d0JdFOQRkWoDItLymVHv3\u002Bx2V8LprITNDETlPoEEC4j1nYUUnuhrSlonD77yLebcvw56Wl7F4YQNann8af9r5u2hsTK7PAK\u002BeyBWTB5SdYtMCGLRHO9u7quH3VsHvGxsPpAkSxOTlZSl8f1EDBofyeO\u002BDNpRn0vjn629g/q1LMPvb38WHRz7ColsacOW0K0rkuiRieDaVREnhZ/JwuIC5v21\u002BtpCvgF/Iwh\u002BiL4LJmZRQP/FSbFqzClsfuBcnWveieuwYrNt4H21JXoe97eB\u002BbNqwFtd9bRbq6mr1GL1tpW0IEXwyOV41hd5PImBGmZCRanR/Ypb1PywMn6JvI791rp5AnXw77oFo1W1HsOUXv8KLFHKe\u002BPZb5qN5cyPqJ0eHMdfVhW2/eQIb76XLMyZnq9n\u002BdxgzPqbU7dI5iA8hnwk9ipBudP4KGd4k03mtML/tBhoYhT0qaaJSncvhfoiJ4\u002BtQN64Gra2tUd9h5ByNcU\u002B2QNjUd8qndPr5MPJWxF8BmhTFRVzPqhQlIX1Cz4OcfT75o5EzlG9BmLT6jhodehXSmSDTAjKe9xUqdCpUAR0UyljnQ67ruj3xE4vIGV53FVkNpHQgBrM6yoosioAQ39Alg69csotJrsG342AGTvtk2nul84Gis6YF0KVJyTtBlDAuKjlBSMoFpq9/dtvrAHqwRJmwiS5x4NqoWwIWkJAlJImfkCTtiZ/YueQMQW8HYbmQNm2B5SHoy9JbwXRk2veZnEVEoHlBH0JCrnpPQvWdghrohBrsgsr3QBX6oIqD/zc5Q5NbRJ4iIRlvQJS5D3bMb0iLdKO3iUZGL14ez\u002BmfuItP1OtJtz/2UDSxnjy2mOiHdyyn\u002Bv8mZ9Q\u002B\u002BVKo7OAtUxaXnVqwoC1uBglwKaPgm5FL4HlYwGOUWD5n2M9CKecMhyya1nz6pTf2o26UBi4y\u002BaiIVN2vxqUK3lFyKrWfgDk9KulqF2n6YCqJzCWfRfBl6dMIqlIG/bXzy/TdPOR8EeWBn4vTTsaaRtP3az8B3RciQySTqVJNv5IgevpGxsTaB6yy1OPc/UIQRSDBCJFQVXRp\u002BMRGUYDDEWCjdx1f8A5HQIbOVnoiXSCiCCQ4OxI0vybnsPvUqk8oNdIofY8Vybyzonae\u002BKwABomwDeurVKMPlwiYXIecjDMkr5UPqR6p6C8jveU\u002BB84VQBjYLI4aLIL\u002BUZXI6QrV4BEsgO/PCnpaC7lft18QgP8Cw9GpUQIOs1oAAAAASUVORK5CYII=",
+              "WhenOpened": "2024-10-10T17:10:56.274Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
